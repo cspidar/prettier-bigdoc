@@ -18,8 +18,8 @@ Fix hyphen of table to 3 to allow reading and editing large-scale table with wor
 
 ```md
 <!-- Prettier -->
-| Long and complicated header 1                                                                                                                     | Long and complicated header 2                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Long and complicated header 1                                                                                                                     | Long and complicated header 2                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | The first long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. | Second long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. |
 
 <!-- Prettier-bigdoc -->
