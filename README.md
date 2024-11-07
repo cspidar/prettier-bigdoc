@@ -77,5 +77,5 @@ node ./dist/bin/prettier.cjs --write proto-test/example.md
 ## TODO
 
 - [x] `<br>` -> `<br />`
-- [] Update test case of markdown table
-- [] Add more features
+- [ ] Update test case of markdown table
+- [ ] Add more features
