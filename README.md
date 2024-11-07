@@ -20,7 +20,7 @@ npm install --save-dev prettier@npm:prettier-bigdoc
 You can use plugins that are supported by Prettier version 3.3.3.
 
 ```bash
-npm install --save-dev prettier @prettier/plugin-xml  --legacy-peer-deps
+npm install --save-dev prettier @prettier/plugin-xml --legacy-peer-deps
 ```
 
 ## Modified features
