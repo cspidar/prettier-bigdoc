@@ -436,8 +436,16 @@ function genericPrint(path, options, print) {
     // or `embeddedLanguageFormatting: "off"`
     case "import":
     case "export":
+
+    // prettier-bigdoc
     case "jsx":
-      return node.value;
+      let value = node.value;
+      value = value.replace(/<br>/g, "<br />");
+      return value;
+
+    // // prettier 3.3.3
+    // case "jsx":
+    //   return node.value;
     case "esComment":
       return ["{/* ", node.value, " */}"];
     case "math":
