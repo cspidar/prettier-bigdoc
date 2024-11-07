@@ -13,19 +13,33 @@ function printTable(path, options, print) {
 
   const columnMaxWidths = [];
   // { [rowIndex: number]: { [columnIndex: number]: {text: string, width: number} } }
+
+  // Prettier for Doc 3.3.3
   const contents = path.map(
     () =>
       path.map(({ index: columnIndex }) => {
         const text = printDocToString(print(), options).formatted;
-        const width = getStringWidth(text);
-        columnMaxWidths[columnIndex] = Math.max(
-          columnMaxWidths[columnIndex] ?? 3, // minimum width = 3 (---, :--, :-:, --:)
-          width,
-        );
+        const width = 3;
+        columnMaxWidths[columnIndex] = 3;
         return { text, width };
       }, "children"),
     "children",
   );
+
+  // // Prettier 3.3.3
+  // const contents = path.map(
+  //   () =>
+  //     path.map(({ index: columnIndex }) => {
+  //       const text = printDocToString(print(), options).formatted;
+  //       const width = getStringWidth(text);
+  //       columnMaxWidths[columnIndex] = Math.max(
+  //         columnMaxWidths[columnIndex] ?? 3, // minimum width = 3 (---, :--, :-:, --:)
+  //         width,
+  //       );
+  //       return { text, width };
+  //     }, "children"),
+  //   "children",
+  // );
 
   const alignedTable = printTableContents(/* isCompact */ false);
   if (options.proseWrap !== "never") {
@@ -58,6 +72,15 @@ function printTable(path, options, print) {
       return `${first}${middle}${last}`;
     });
   }
+  // function printAlign(isCompact) {
+  //   return columnMaxWidths.map((width, index) => {
+  //     const align = node.align[index];
+  //     const first = align === "center" || align === "left" ? ":" : "-";
+  //     const last = align === "center" || align === "right" ? ":" : "-";
+  //     const middle = isCompact ? "-" : "-".repeat(width - 2);
+  //     return `${first}${middle}${last}`;
+  //   });
+  // }
 
   function printRow(columns, isCompact) {
     return columns.map(({ text, width }, columnIndex) => {

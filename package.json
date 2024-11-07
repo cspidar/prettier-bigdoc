@@ -1,7 +1,7 @@
 {
-  "name": "prettier",
-  "version": "3.4.0-dev",
-  "description": "Prettier is an opinionated code formatter",
+  "name": "prettier-bigdoc",
+  "version": "0.0.1",
+  "description": "Modified Prettier for large-scale documentation task",
   "bin": "./bin/prettier.cjs",
   "repository": "prettier/prettier",
   "funding": "https://github.com/prettier/prettier?sponsor=1",
