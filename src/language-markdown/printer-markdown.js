@@ -263,11 +263,14 @@ function genericPrint(path, options, print) {
         style,
       ];
     }
+
+    // prettier-bigdoc: <br> -> <br />
     case "html": {
       const { parent, isLast } = path;
-      const value =
+      let value =
         parent.type === "root" && isLast ? node.value.trimEnd() : node.value;
       const isHtmlComment = /^<!--.*-->$/su.test(value);
+      value = value.replace(/<br>/g, "<br />");
 
       return replaceEndOfLine(
         value,
@@ -275,6 +278,19 @@ function genericPrint(path, options, print) {
         isHtmlComment ? hardline : markAsRoot(literalline),
       );
     }
+    // // prettier 3.3.3
+    // case "html": {
+    //   const { parent, isLast } = path;
+    //   const value =
+    //     parent.type === "root" && isLast ? node.value.trimEnd() : node.value;
+    //   const isHtmlComment = /^<!--.*-->$/su.test(value);
+
+    //   return replaceEndOfLine(
+    //     value,
+    //     // @ts-expect-error
+    //     isHtmlComment ? hardline : markAsRoot(literalline),
+    //   );
+    // }
     case "list": {
       const nthSiblingIndex = getNthListSiblingIndex(node, path.parent);
 
