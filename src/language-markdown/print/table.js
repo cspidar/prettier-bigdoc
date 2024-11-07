@@ -10,22 +10,35 @@ import getStringWidth from "../../utils/get-string-width.js";
 
 function printTable(path, options, print) {
   const { node } = path;
-
   const columnMaxWidths = [];
   // { [rowIndex: number]: { [columnIndex: number]: {text: string, width: number} } }
+
+  // prettier-bigdoc
   const contents = path.map(
     () =>
       path.map(({ index: columnIndex }) => {
         const text = printDocToString(print(), options).formatted;
-        const width = getStringWidth(text);
-        columnMaxWidths[columnIndex] = Math.max(
-          columnMaxWidths[columnIndex] ?? 3, // minimum width = 3 (---, :--, :-:, --:)
-          width,
-        );
+        const width = 3;
+        columnMaxWidths[columnIndex] = 3;
         return { text, width };
       }, "children"),
     "children",
   );
+
+  // // prettier 3.3.3
+  // const contents = path.map(
+  //   () =>
+  //     path.map(({ index: columnIndex }) => {
+  //       const text = printDocToString(print(), options).formatted;
+  //       const width = getStringWidth(text);
+  //       columnMaxWidths[columnIndex] = Math.max(
+  //         columnMaxWidths[columnIndex] ?? 3, // minimum width = 3 (---, :--, :-:, --:)
+  //         width,
+  //       );
+  //       return { text, width };
+  //     }, "children"),
+  //   "children",
+  // );
 
   const alignedTable = printTableContents(/* isCompact */ false);
   if (options.proseWrap !== "never") {
