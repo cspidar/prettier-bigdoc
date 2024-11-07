@@ -12,7 +12,7 @@ About Prettier, see below.
 ## Install
 
 ```bash
-npm install --save-dev prettier@npm:prettier-bigdoc
+npm install --save-dev prettier@npm:prettier-bigdoc --legacy-peer-deps
 ```
 
 ### If you want install plugin
