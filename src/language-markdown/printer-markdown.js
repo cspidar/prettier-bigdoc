@@ -270,7 +270,7 @@ function genericPrint(path, options, print) {
       let value =
         parent.type === "root" && isLast ? node.value.trimEnd() : node.value;
       const isHtmlComment = /^<!--.*-->$/su.test(value);
-      value = value.replace(/<br>/g, "<br />");
+      value = value.replace(/<br\b[^>]*>/gi, "<br />");
 
       return replaceEndOfLine(
         value,
@@ -440,7 +440,7 @@ function genericPrint(path, options, print) {
     // prettier-bigdoc
     case "jsx":
       let value = node.value;
-      value = value.replace(/<br>/g, "<br />");
+      value = value.replace(/<br\b[^>]*>/gi, "<br />");
       return value;
 
     // // prettier 3.3.3
