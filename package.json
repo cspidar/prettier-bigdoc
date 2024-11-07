@@ -1,6 +1,6 @@
 {
   "name": "prettier-bigdoc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modified Prettier for large-scale documentation task",
   "bin": "./bin/prettier.cjs",
   "repository": "cspidar/prettier-bigdoc",
