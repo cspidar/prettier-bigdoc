@@ -1,4 +1,3 @@
-
 # prettier-bigdoc
 
 Modified Prettier for large-scale documentation task. Based on Prettier version `3.3.3`. Supports for md, mdx.
@@ -9,6 +8,20 @@ About Prettier, see below.
 
 - Web: https://prettier.io/
 - GitHub: https://github.com/prettier/prettier
+
+## Install
+
+```bash
+npm install --save-dev prettier@npm:prettier-bigdoc
+```
+
+### If you want install plugin
+
+You can use plugins that are supported by Prettier version 3.3.3.
+
+```bash
+npm install --save-dev prettier @prettier/plugin-xml  --legacy-peer-deps
+```
 
 ## Modified features
 
@@ -28,6 +41,9 @@ Fix hyphen of table to 3 to allow reading and editing large-scale table with wor
 | The first long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. | Second long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. |
 ```
 
+
+
+
 ### More will be added as needed
 
 In future.
@@ -44,21 +60,22 @@ npm run build
 
 ### Test
 
-#### Dist
-
-```
-node ./dist/bin/prettier.cjs --write proto-test/example.md
-```
-
 #### Project
 
 ```
 node ./bin/prettier.cjs --write proto-test/example.md
 ```
 
+#### Dist
+
+```
+node ./dist/bin/prettier.cjs --write proto-test/example.md
+```
+
 ---
 
 ## TODO
 
-[] Update test case of markdown table
-[] Add more features
+- [x] `<br>` -> `<br />`
+- [] Update test case of markdown table
+- [] Add more features
