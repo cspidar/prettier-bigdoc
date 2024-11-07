@@ -56,7 +56,12 @@ node ./dist/bin/prettier.cjs --write proto-test/example.md
 node ./bin/prettier.cjs --write proto-test/example.md
 ```
 
+---
 
+## TODO
+
+- [] Update test case of markdown table
+- [] Add more features
 
 
 
