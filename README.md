@@ -1,6 +1,6 @@
 # prettier-bigdoc
 
-Modified Prettier for large-scale documentation task. Based on Prettier version `3.3.3`. Supports for md, mdx.
+Modified Prettier for large-scale documentation task. Based on Prettier version `3.3.3`. Supports for **md**, **mdx**.
 
 ## Prettier?
 
@@ -12,16 +12,21 @@ About Prettier, see below.
 ## Install
 
 ```bash
-npm install --save-dev prettier@npm:prettier-bigdoc --legacy-peer-deps
+npm install --save-dev prettier@npm:prettier-bigdoc
 ```
 
 ### If you want install plugin
 
 You can use plugins that are supported by Prettier version 3.3.3.
 
-```bash
-npm install --save-dev prettier @prettier/plugin-xml --legacy-peer-deps
-```
+1. Add plugin in overrides field.
+   ```bash
+   npm pkg set overrides.${PLUGIN_NAME}.prettier="npm:prettier-bigdoc"
+   ```
+1. Install plugin.
+   ```bash
+   npm install --save-dev prettier ${PLUGIN_NAME}
+   ```
 
 ## Modified features
 
@@ -30,19 +35,26 @@ npm install --save-dev prettier @prettier/plugin-xml --legacy-peer-deps
 Fix hyphen of table to 3 to allow reading and editing large-scale table with word wrap applied. Make the worst a little less worst.
 
 ```md
-<!-- Prettier -->
+<!-- prettier 3.3.3 -->
 | Long and complicated header 1                                                                                                                     | Long and complicated header 2                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | The first long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. | Second long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. |
 
-<!-- Prettier-bigdoc -->
+<!-- prettier-bigdoc -->
 | Long and complicated header 1 | Long and complicated header 2 |
 | --- | --- |
 | The first long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. | Second long and complicated descriptions and text to supplement them.<br>Less important descriptions that should be placed on the bottom line. |
 ```
 
+### `<br>` tags auto closure 
 
+```md
+<!-- prettier 3.3.3 -->
+<br>
 
+<!-- prettier-bigdoc -->
+<br />
+```
 
 ### More will be added as needed
 
